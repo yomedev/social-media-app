@@ -1,43 +1,25 @@
 :root {
-  --max-width: 1100px;
-  --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
-    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
-    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+  --size_border_radius--regular: 8px;
+  --size_button_small_height--compact: 28px;
+  --size_button_minimum_width--regular: 80px;
+  --color_text_contrast_themed: #fff;
+  --color_background_accent_themed: #447bba;
+  --color_text_accent_themed: #3770b1;
+  --color_background_secondary_alpha: rgba(235,242,250,.99);
+  --color_transparent: transparent;
+  --color_stroke_accent_themed: #3770b1;
+  --color_background_accent_themed--hover: #4177b5;
+  --color_background_accent_themed--active: #3f72b0;
+  --color_background_secondary_alpha--hover: rgba(223,234,246,.99);
+  --color_background_secondary_alpha--active: rgba(213,226,241,.99);
+  --color_transparent--hover: rgba(0,16,61,.04);
+  --color_transparent--active: rgba(0,16,61,.08);
+  --size_border_radius_rounded--regular: 48px;
+  --opacity_disable: 0.4;
+  --size_button_large_height--compact: 36px;
+    --size_button_medium_height--compact: 32px;
+    --size_button_small_height--compact: 28px;
 
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-
-  --primary-glow: conic-gradient(
-    from 180deg at 50% 50%,
-    #16abff33 0deg,
-    #0885ff33 55deg,
-    #54d6ff33 120deg,
-    #0071ff33 160deg,
-    transparent 360deg
-  );
-  --secondary-glow: radial-gradient(
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0)
-  );
-
-  --tile-start-rgb: 239, 245, 249;
-  --tile-end-rgb: 228, 232, 233;
-  --tile-border: conic-gradient(
-    #00000080,
-    #00000040,
-    #00000030,
-    #00000020,
-    #00000010,
-    #00000010,
-    #00000080
-  );
-
-  --callout-rgb: 238, 240, 241;
-  --callout-border-rgb: 172, 175, 176;
-  --card-rgb: 180, 185, 188;
-  --card-border-rgb: 131, 134, 135;
 }
 
 @media (prefers-color-scheme: dark) {
