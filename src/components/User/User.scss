@@ -1,0 +1,21 @@
+.user {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  &__name {
+    font-size: 14px;
+    color: #ffffff;
+  }
+
+  &__avatar {
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  &__icon {
+    width: 10px;
+    height: 10px;
+    fill: #A4BBD3;
+  }
+}

@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
-import styles from "./page.module.css";
-import { Header } from "../components/Header";
+import { Header } from "./Header";
+import { Panel, SplitCol, SplitLayout } from "@/components";
+import { Navbar } from "./Navbar";
 
-
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  weight: ["300", "400", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,9 +23,27 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={poppins.className}>
         <Header />
-        <main className={styles.main}>{children}</main>
+        <div className="container">
+          <div style={{ padding: "10px 0 0" }}>
+          <SplitLayout>
+            <SplitCol width={156}>
+              <aside >
+                <Navbar />
+              </aside>
+            </SplitCol>
+            <SplitCol width={550}>
+              <main>{children}</main>
+            </SplitCol>
+            <SplitCol width={264}>
+              <Panel mode="card" rounded>
+                <aside >sdfsdfsdf</aside>
+              </Panel>
+            </SplitCol>
+          </SplitLayout>
+          </div>
+        </div>
       </body>
     </html>
   );

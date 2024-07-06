@@ -1,0 +1,14 @@
+.logo {
+  &__icon {
+    width: 35px;
+    height: 35px;
+    vertical-align: -7px;
+    fill: #ffffff;
+    transform: rotate(-90deg);
+  }
+
+  &__label {
+    font-size: 30px;
+    color: #FFFFFF;
+  }
+}

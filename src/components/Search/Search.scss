@@ -1,0 +1,32 @@
+.search {
+  position: relative;
+  background-color: #224B7A;
+  border-radius: 14px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  color: #8FADC8;
+  padding: 0 10px;
+  width: fit-content;
+
+  &__label {
+    bottom: 0;
+    cursor: text;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  &__input {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    padding: 0 5px;
+
+    &::placeholder {
+      color: #8FADC8;
+    }
+  }
+}

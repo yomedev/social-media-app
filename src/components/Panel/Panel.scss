@@ -1,0 +1,17 @@
+.panel {
+  min-height: 100%;
+  width: 100%;
+  border: 1px solid #DCE1E5;
+
+  &--mode-plain {
+    background-color: transparent;
+  }
+
+  &--mode-card {
+    background-color: #ffffff;
+  }
+
+  &--rounded {
+    border-radius: 6px;
+  }
+}

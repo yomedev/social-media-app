@@ -1,0 +1,17 @@
+.separator {
+  color: #dce1e6;
+
+  &--padded {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+
+  &__in {
+    background: currentColor;
+    border: 0;
+    color: inherit;
+    height: 1px;
+    margin: 0;
+    transform-origin: center top;
+  }
+}
