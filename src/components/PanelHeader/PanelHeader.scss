@@ -1,0 +1,24 @@
+.panel-header {
+  &__in {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 48px;
+  }
+
+  &__before {
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 0;
+    align-items: center;
+  }
+
+  &__after {
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 0;
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+  }
+}

@@ -6,3 +6,5 @@ export { default as MessageIcon } from "./MessageIcon";
 export { default as LogoIcon } from "./LogoIcon";
 export { default as SearchIcon } from "./SearchIcon";
 export { default as ChevronDownIcon } from "./ChevronDownIcon";
+export { default as ChevronLeftIcon } from "./ChevronLeftIcon";
+export { default as XMarkIcon } from "./XMarkIcon";

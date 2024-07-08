@@ -7,3 +7,4 @@ export * from "./Logo";
 export * from "./Search";
 export * from "./User";
 export * from "./Separator";
+export * from "./PanelHeader";
