@@ -36,10 +36,8 @@ export default function Button({
     }
   );
   return (
-    <>
       <button className={className} disabled={disabled} type="button">
         {children}
       </button>
-    </>
   );
 }

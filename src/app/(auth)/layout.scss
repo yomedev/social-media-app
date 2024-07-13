@@ -1,0 +1,13 @@
+.main-auth {
+  min-height: 100vh;
+  display: flex;
+
+  &__left {
+    flex: 1;
+    background-color: #447bba;
+  }
+
+  &__right {
+    flex: 1
+  }
+}

@@ -296,6 +296,12 @@ ul {
   padding: 0;
 }
 
+input, button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+
 .container {
   margin: 0 auto;
   width: 980px;

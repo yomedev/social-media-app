@@ -8,3 +8,5 @@ export { default as SearchIcon } from "./SearchIcon";
 export { default as ChevronDownIcon } from "./ChevronDownIcon";
 export { default as ChevronLeftIcon } from "./ChevronLeftIcon";
 export { default as XMarkIcon } from "./XMarkIcon";
+export { default as EyeIcon } from "./EyeIcon";
+export { default as EyeSlashIcon } from "./EyeSlashIcon";

@@ -1,3 +1,5 @@
-export type IconProps = {
-  className?: string
+import { SVGAttributes } from "react"
+
+export type IconProps = SVGAttributes<SVGElement> & {
+  
 }

@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import "./globals.css";
-import { Header } from "../components/Header";
-import { Panel, SplitCol, SplitLayout } from "@/components";
-import { Navbar } from "../components/Navbar";
+import "../globals.css";
+import { Panel, SplitCol, SplitLayout, Header, Navbar } from "@/components";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -27,21 +25,21 @@ export default function RootLayout({
         <Header />
         <div className="container">
           <div style={{ padding: "10px 0 0" }}>
-          <SplitLayout>
-            <SplitCol width={156}>
-              <aside >
-                <Navbar />
-              </aside>
-            </SplitCol>
-            <SplitCol width={550}>
-              <main>{children}</main>
-            </SplitCol>
-            <SplitCol width={264}>
-              <Panel mode="card" rounded>
-                <aside >sdfsdfsdf</aside>
-              </Panel>
-            </SplitCol>
-          </SplitLayout>
+            <SplitLayout>
+              <SplitCol width={156}>
+                <aside>
+                  <Navbar />
+                </aside>
+              </SplitCol>
+              <SplitCol width={550}>
+                <main>{children}</main>
+              </SplitCol>
+              <SplitCol width={264}>
+                <Panel mode="card" rounded>
+                  <aside>sdfsdfsdf</aside>
+                </Panel>
+              </SplitCol>
+            </SplitLayout>
           </div>
         </div>
       </body>
