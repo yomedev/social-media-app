@@ -64,7 +64,12 @@ export default function Login() {
         </ButtonGroup>
       </form>
       <Spacing size={16} />
-     
+      <div>
+        <Text Component="p" normalize inline>
+          Don&apos;t have an account?
+        </Text>{" "}
+        <Link href="signup">Signup</Link>
+      </div>git 
       <Spacing size={16} />
       {/* <Separator /> */}
     </section>
