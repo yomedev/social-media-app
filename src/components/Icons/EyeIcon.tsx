@@ -1,6 +1,6 @@
 import { IconProps } from "./types";
 
-export default function FriendsIcon({
+export default function EyeIcon({
   ...rest
 }: IconProps) {
   return (

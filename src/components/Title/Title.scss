@@ -1,0 +1,41 @@
+.title {
+  &--level-1 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 28px;
+  }
+
+  &--level-2 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+  }
+
+  &--level-3 {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 22px;
+  }
+
+  &--weight-1 {
+    font-weight: 600;
+  }
+
+  &--weight-2 {
+    font-weight: 500;
+  }
+
+  &--weight-3 {
+    font-weight: 400;
+  }
+
+  &--inline {
+    display: inline-block;
+  }
+
+  &--normalize {
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+}

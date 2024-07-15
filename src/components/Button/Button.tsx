@@ -1,3 +1,4 @@
+import Link from "next/link";
 import "./Button.scss";
 import classNames from "classnames";
 
@@ -14,6 +15,7 @@ type ButtonProps = {
   // disableSpinnerAnimation?: boolean;
   rounded?: boolean;
   disabled?: boolean;
+  type?: "button" | "submit" | undefined;
 };
 
 export default function Button({
@@ -24,6 +26,7 @@ export default function Button({
   rounded,
   disabled,
   size = "m",
+  type = "button",
 }: ButtonProps) {
   const className = classNames(
     "button",
@@ -35,9 +38,10 @@ export default function Button({
       "button--rounded": rounded,
     }
   );
+
   return (
-      <button className={className} disabled={disabled} type="button">
-        {children}
-      </button>
+    <button className={className} disabled={disabled} type={type}>
+      {children}
+    </button>
   );
 }

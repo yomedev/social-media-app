@@ -28,7 +28,7 @@ export default function FormItem({
         {required && <span className="form-item-top__label--required">*</span>}
       </div>
       {children}
-      {status === "error" && (
+      {status && bottom && (
         <div
           className={classNames(
             "form-item__bottom",

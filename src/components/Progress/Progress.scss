@@ -1,0 +1,22 @@
+.progress {
+  background-color: #d3d9de;
+
+  &--appearance-accent &__in {
+    background-color: #447bba;
+  }
+  &--appearance-negative &__in {
+    background-color: #e64646;
+  }
+  &--appearance-positive &__in {
+    background-color: #4bb34b;
+  }
+  &--appearance-warning &__in {
+    background-color: #ffa000;
+  }
+
+  &__in {
+    height: 100%;
+    border-radius: inherit;
+    transition: width 0.2s ease;
+  }
+}

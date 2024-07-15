@@ -1,6 +1,6 @@
 import { Poppins } from "next/font/google";
 import "../globals.css";
-import "./layout.scss"
+import "./layout.scss";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -21,10 +21,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={poppins.className}>
-        <main className="main-auth">
-          <section className="main-auth__left">Left</section>
-          <section className="main-auth__right">{children}</section>
-        </main>
+        <div className="container">
+          <main className="main-auth">
+            <section className="main-auth__left">Left</section>
+            <section className="main-auth__right">{children}</section>
+          </main>
+        </div>
       </body>
     </html>
   );

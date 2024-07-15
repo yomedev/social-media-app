@@ -1,13 +1,19 @@
 .main-auth {
   min-height: 100vh;
   display: flex;
+  padding-top: 55px;
 
   &__left {
     flex: 1;
-    background-color: #447bba;
+    display: flex;
+    justify-content: start;
+    // background-color: #447bba;
   }
 
   &__right {
-    flex: 1
+    flex: 1;
+    display: flex;
+    justify-content: end;
+    // padding: 50px;
   }
 }

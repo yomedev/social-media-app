@@ -1,0 +1,45 @@
+.button-group {
+  display: inline-flex;
+  max-width: 100%;
+  gap: calc(1px * var(--button-group-gap));
+
+  &--mode-horizontal {
+    flex-direction: row;
+    align-items: start;
+
+    &.button-group--align-left {
+      justify-content: start;
+    }
+    &.button-group--align-center {
+      justify-content: center;
+    }
+    &.button-group--align-right {
+      justify-content: right;
+    }
+    &.button-group--align-between {
+      justify-content: space-between;
+    }
+  }
+
+  &--mode-vertical {
+    flex-direction: column;
+
+    &.button-group--align-left {
+      align-items: start;
+    }
+    &.button-group--align-center {
+      align-items: center;
+    }
+    &.button-group--align-right {
+      align-items: right;
+    }
+    &.button-group--align-between {
+      justify-content: space-between;
+    }
+  }
+
+  &--stretched {
+    display: flex;
+    width: 100%;
+  }
+}

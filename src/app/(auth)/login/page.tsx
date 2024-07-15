@@ -1,11 +1,17 @@
 "use client";
 
 import {
+  Button,
+  ButtonGroup,
   EyeIcon,
   EyeSlashIcon,
   FormItem,
   IconButton,
   Input,
+  Spacing,
+  Text,
+  Title,
+  Link,
 } from "@/components";
 import "./page.scss";
 import { useState } from "react";
@@ -14,9 +20,14 @@ export default function Login() {
   const [isPassShow, setIsPassShow] = useState(false);
 
   return (
-    <>
-      <h1>Login</h1>
-      <form action="">
+    <section className="login">
+      <Title normalize Component="h1">
+        Login
+      </Title>
+      <Spacing size={24} />
+      {/* <Separator /> */}
+      {/* <Spacing size={16} /> */}
+      <form className="login__form" action="">
         <FormItem
           bottom="Please, enter email"
           required
@@ -25,6 +36,7 @@ export default function Login() {
         >
           <Input id="email" placeholder="example@mail.com" />
         </FormItem>
+        <Spacing />
         <FormItem
           bottom="Please, enter password"
           required
@@ -45,7 +57,16 @@ export default function Login() {
             }
           />
         </FormItem>
+        <Spacing size={16} />
+        <ButtonGroup stretched align="between">
+          <Button size="l">Login</Button>
+          <Link href="forgot-password">Forgot password?</Link>
+        </ButtonGroup>
       </form>
-    </>
+      <Spacing size={16} />
+     
+      <Spacing size={16} />
+      {/* <Separator /> */}
+    </section>
   );
 }
