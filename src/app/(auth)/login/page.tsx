@@ -69,7 +69,7 @@ export default function Login() {
           Don&apos;t have an account?
         </Text>{" "}
         <Link href="signup">Signup</Link>
-      </div>git 
+      </div>
       <Spacing size={16} />
       {/* <Separator /> */}
     </section>

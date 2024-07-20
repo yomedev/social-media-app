@@ -1,0 +1,23 @@
+.stepper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  &__step {
+    padding: 0 8px;
+  }
+
+  &__step-connector {
+    color: #d3d9de;
+    flex: 1 1 auto;
+
+    &-in {
+      background: currentColor;
+      border: 0;
+      color: inherit;
+      height: 2px;
+      margin: 0;
+      transform-origin: center top;
+    }
+  }
+}

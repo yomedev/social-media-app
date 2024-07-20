@@ -1,8 +1,9 @@
 import Link from "next/link";
 import "./Button.scss";
 import classNames from "classnames";
+import { ButtonHTMLAttributes } from "react";
 
-type ButtonProps = {
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   children: React.ReactNode;
   mode?: "primary" | "secondary" | "tertiary" | "outline" | "link";
   // appearance?: 'accent' | 'positive' | 'negative' | 'neutral' | 'overlay' | 'accent-invariable';
@@ -27,6 +28,7 @@ export default function Button({
   disabled,
   size = "m",
   type = "button",
+  ...rest
 }: ButtonProps) {
   const className = classNames(
     "button",
@@ -40,7 +42,7 @@ export default function Button({
   );
 
   return (
-    <button className={className} disabled={disabled} type={type}>
+    <button {...rest} className={className} disabled={disabled} type={type}>
       {children}
     </button>
   );

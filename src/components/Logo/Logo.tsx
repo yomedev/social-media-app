@@ -11,11 +11,10 @@ const fredoka = Fredoka({
 export default function Logo() {
   return (
     <div className="logo">
-      <LogoIcon className="logo__icon" />
       <span
         className={`${fredoka.className} logo__label`}
       >
-        reativo
+        Creativo
       </span>
     </div>
   );

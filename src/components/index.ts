@@ -19,3 +19,4 @@ export * from "./Spacing";
 export * from "./ButtonGroup";
 export * from "./Link";
 export * from "./Progress";
+export * from "./Stepper";
