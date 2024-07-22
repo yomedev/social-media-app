@@ -12,3 +12,6 @@ export { default as XMarkIcon } from "./XMarkIcon";
 export { default as EyeIcon } from "./EyeIcon";
 export { default as EyeSlashIcon } from "./EyeSlashIcon";
 export { default as CircleIcon } from "./CircleIcon";
+export { default as EllipsisIcon } from "./EllipsisIcon";
+export { default as HeartIcon } from "./HeartIcon";
+export { default as CommentIcon } from "./CommentIcon";

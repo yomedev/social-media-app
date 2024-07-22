@@ -1,0 +1,48 @@
+[
+  {
+    "postId": "post_1",
+    "userId": "user_1",
+    "content": "Excited to start my new project on AI!",
+    "imageUrl": "https://images.unsplash.com/photo-1706466614967-f4f14a3d9d08?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "createdAt": "2023-10-01T09:00:00Z",
+    "updatedAt": "2023-10-01T09:00:00Z",
+    "likes": [
+      "user_2"
+    ],
+    "tags": [
+      "AI",
+      "Project",
+      "Technology"
+    ]
+  },
+  {
+    "postId": "post_2",
+    "userId": "user_2",
+    "content": "Just got back from an amazing hike. The views were stunning!",
+    "imageUrl": "https://images.unsplash.com/photo-1465188466731-618dfc07a57d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "createdAt": "2023-10-01T14:30:00Z",
+    "updatedAt": "2023-10-01T14:30:00Z",
+    "likes": [
+      "user_1",
+      "user_3"
+    ],
+    "tags": [
+      "Hiking",
+      "Nature",
+      "Adventure"
+    ]
+  },
+  {
+    "postId": "post_3",
+    "userId": "user_3",
+    "content": "Working on my next short story. Any suggestions?",
+    "imageUrl": "https://images.unsplash.com/reserve/LJIZlzHgQ7WPSh5KVTCB_Typewriter.jpg?q=80&w=1896&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "createdAt": "2023-10-01T16:00:00Z",
+    "updatedAt": "2023-10-01T16:00:00Z",
+    "likes": [],
+    "tags": [
+      "Writing",
+      "ShortStory"
+    ]
+  }
+]

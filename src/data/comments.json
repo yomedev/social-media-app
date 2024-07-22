@@ -1,0 +1,23 @@
+[
+  {
+    "commentId": "comment_1",
+    "userId": "user_2",
+    "postId": "post_1",
+    "content": "That's awesome! Can't wait to see it!",
+    "createdAt": "2023-10-01T10:00:00Z"
+  },
+  {  
+    "commentId": "comment_2",  
+    "userId": "user_1",  
+    "postId": "post_2",
+    "content": "Looks incredible! Where was this?",  
+    "createdAt": "2023-10-01T15:00:00Z"  
+  },  
+  {  
+    "commentId": "comment_3",  
+    "userId": "user_3", 
+    "postId": "post_2", 
+    "content": "Nature is the best therapy!",  
+    "createdAt": "2023-10-01T15:30:00Z"  
+  }  
+]

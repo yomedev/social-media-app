@@ -1,0 +1,41 @@
+.caption {
+  &--level-1 {
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 400;
+  }
+
+  &--level-2 {
+    font-size: 11px;
+    line-height: 14px;
+    font-weight: 400;
+  }
+
+  &--level-2 {
+    font-size: 9px;
+    line-height: 12px;
+    font-weight: 400;
+  }
+
+  &--normalize {
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  &--inline {
+    display: inline-block;
+  }
+
+  &--weight-1 {
+    font-weight: 600;
+  }
+
+  &--weight-2 {
+    font-weight: 500;
+  }
+
+  &--weight-3 {
+    font-weight: 400;
+  }
+}

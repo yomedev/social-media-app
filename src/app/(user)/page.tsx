@@ -1,16 +1,16 @@
 import {
   Button,
   ChevronLeftIcon,
+  FormItem,
   Panel,
   PanelHeader,
+  Post,
   Separator,
-  SplitCol,
-  SplitLayout,
+  Textarea,
   XMarkIcon,
 } from "@/components";
-import HomeIcon from "@/components/Icons/HomeIcon";
-import MessageIcon from "@/components/Icons/MessageIcon";
 import "./page.scss";
+import posts from "../../data/posts.json";
 
 export default function Home() {
   return (
@@ -21,10 +21,18 @@ export default function Home() {
       >
         Header
       </PanelHeader>
-      <Button align="left">Left</Button>
-      <Button align="center">Center</Button>
-      <HomeIcon />
-      <MessageIcon />
+      <form action="">
+        <FormItem>
+          <Textarea />
+        </FormItem>
+        <Button>Add post</Button>
+      </form>
+      {posts.map((item) => (
+        <>
+          <Post {...item} key={item.postId} />
+          <Separator />
+        </>
+      ))}
     </Panel>
   );
 }

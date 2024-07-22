@@ -1,9 +1,9 @@
 import { IconProps } from "./types";
 
-export default function BookmarkIcon({ className }: IconProps) {
+export default function BookmarkIcon({ ...rest }: IconProps) {
   return (
     <svg
-      className={className}
+      {...rest}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 384 512"
     >

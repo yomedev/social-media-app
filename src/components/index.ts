@@ -20,3 +20,8 @@ export * from "./ButtonGroup";
 export * from "./Link";
 export * from "./Progress";
 export * from "./Stepper";
+export * from "./Avatar";
+export * from "./Post";
+export * from "./Cell";
+export * from "./Caption";
+export * from "./Textarea";

@@ -1,0 +1,9 @@
+.post {
+  padding: 10px;
+  
+  &__image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+}

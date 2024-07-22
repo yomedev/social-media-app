@@ -1,12 +1,11 @@
 .icon-button {
-  min-width: 44px;
-  height: 44px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0;
-  border-radius: inherit;
+  border-radius: 50%;
   pointer-events: auto;
+  padding: 10px;
 
   &:focus-visible {
     background-color: red;
@@ -14,6 +13,7 @@
 
   &:hover {
     cursor: pointer;
-    opacity: .8;
+    opacity: 0.8;
+    background-color: rgba(0, 16, 61, 0.04);
   }
 }
