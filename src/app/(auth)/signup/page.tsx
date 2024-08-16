@@ -1,94 +1,35 @@
-"use client";
-
-import "./page.scss";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import {
-  Button,
-  EyeIcon,
-  EyeSlashIcon,
-  FormItem,
-  IconButton,
-  Input,
-  Link,
-  Progress,
-  Spacing,
-  Text,
-  Title,
-} from "@/components";
-import { useState } from "react";
-
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import SignupForm from "../../../components/forms/SignupForm";
 export default function Signup() {
-  const [isPassShow, setIsPassShow] = useState(false);
-
   return (
-    <section className="signup">
-      <Title normalize Component="h1">
-        Signup
-      </Title>
-      <Spacing size={24} />
-      <form className="signup__form" action="">
-        <FormItem
-          bottom="Please, enter email"
-          required
-          htmlFor="email"
-          top="Email"
-        >
-          <Input id="email" placeholder="example@mail.com" />
-        </FormItem>
-        <Spacing />
-        <FormItem
-          bottom="Please, enter password"
-          required
-          htmlFor="pass"
-          top="Password"
-        >
-          <Input
-            id="pass"
-            type={!isPassShow ? "password" : "text"}
-            after={
-              <IconButton onClick={() => setIsPassShow((prev) => !prev)}>
-                {!isPassShow ? (
-                  <EyeIcon width={16} height={16} fill="#99A2AD" />
-                ) : (
-                  <EyeSlashIcon width={16} height={16} fill="#99A2AD" />
-                )}
-              </IconButton>
-            }
-          />
-        </FormItem>
-        <Spacing size={2} />
-        <Progress value={100} height={4} />
-        <Spacing />
-        <FormItem
-          bottom="Please, confirm password"
-          required
-          htmlFor="confirmPass"
-          top="Confirm password"
-        >
-          <Input
-            id="confirmPass"
-            type={!isPassShow ? "password" : "text"}
-            after={
-              <IconButton onClick={() => setIsPassShow((prev) => !prev)}>
-                {!isPassShow ? (
-                  <EyeIcon width={16} height={16} fill="#99A2AD" />
-                ) : (
-                  <EyeSlashIcon width={16} height={16} fill="#99A2AD" />
-                )}
-              </IconButton>
-            }
-          />
-        </FormItem>
-        <Spacing size={16} />
-        <Button size="l">Signup</Button>
-      </form>
-      <Spacing size={16} />
-      <div>
-        <Text Component="p" normalize inline>
-          Already have an account?
-        </Text>{" "}
-        <Link href="login">Login</Link>
-      </div>
-      <Spacing size={16} />
-    </section>
+    <Card className="mx-auto max-w-sm">
+      <CardHeader>
+        <CardTitle className="text-xl">Sign Up</CardTitle>
+        <CardDescription>
+          Enter your information to create an account
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <SignupForm />
+        <Button variant="outline" className="w-full mt-4">
+          Sign up with Google
+        </Button>
+      </CardContent>
+      <CardFooter className="flex justify-center text-center text-sm">
+        Already have an account?&nbsp;
+        <Link href="/login" className="underline">
+          Sign in
+        </Link>
+      </CardFooter>
+    </Card>
   );
 }

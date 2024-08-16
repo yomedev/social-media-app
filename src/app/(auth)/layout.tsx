@@ -1,12 +1,7 @@
-import { Poppins } from "next/font/google";
-import "../globals.css";
-import "./layout.scss";
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-  weight: ["300", "400", "700"],
-});
+import { TooltipProvider } from "@/components/ui/tooltip";
+import "../../styles/globals.css";
+import { Input } from "@/components/ui/input";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata = {
   title: "Next.js",
@@ -20,14 +15,26 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={poppins.className}>
-        <div className="container">
-          <main className="main-auth">
-            <section className="main-auth__left">Left</section>
-            <section className="main-auth__right">{children}</section>
-          </main>
-        </div>
+      <body>
+        <main className="bg-background w-full h-screen flex items-center justify-center px-4">
+          <TooltipProvider>{children}</TooltipProvider>
+          <Toaster />
+        </main>
       </body>
     </html>
   );
 }
+
+const Header = () => (
+  <header className="sticky top-0 flex h-16 justify-center items-center gap-4 border-b bg-background px-4 md:px-6">
+    <form className="flex-1 sm:flex-initial">
+      <div className="relative">
+        <Input
+          type="search"
+          placeholder="Search products..."
+          className="pl-8 sm:w-[300px] md:w-[200px] lg:w-[300px]"
+        />
+      </div>
+    </form>
+  </header>
+);

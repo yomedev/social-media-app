@@ -1,38 +1,19 @@
-import {
-  Button,
-  ChevronLeftIcon,
-  FormItem,
-  Panel,
-  PanelHeader,
-  Post,
-  Separator,
-  Textarea,
-  XMarkIcon,
-} from "@/components";
-import "./page.scss";
-import posts from "../../data/posts.json";
+import { Button } from "@/components/ui/button";
+import { redirect } from "next/navigation";
+import { validateRequest } from "@/lib/dal";
+import Logout from "@/components/forms/Logout";
 
-export default function Home() {
+export default async function Home() {
+  const { user } = await validateRequest();
+
+  if (!user) {
+    redirect("/login");
+  }
+
   return (
-    <Panel mode="card" rounded>
-      <PanelHeader
-        before={<ChevronLeftIcon className="icon" />}
-        after={<XMarkIcon className="icon" />}
-      >
-        Header
-      </PanelHeader>
-      <form action="">
-        <FormItem>
-          <Textarea />
-        </FormItem>
-        <Button>Add post</Button>
-      </form>
-      {posts.map((item) => (
-        <>
-          <Post {...item} key={item.postId} />
-          <Separator />
-        </>
-      ))}
-    </Panel>
+    <>
+      <h1 className="text-2xl font-bold underline">Hello, {user?.email}!</h1>
+      <Logout />
+    </>
   );
 }

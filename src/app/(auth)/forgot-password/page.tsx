@@ -1,146 +1,132 @@
-"use client";
-
+import { Button } from "@/components/ui/button";
 import {
-  Button,
-  ButtonGroup,
-  FormItem,
-  Input,
-  Link,
-  Spacing,
-  Text,
-  Title,
-  Stepper,
-  IconButton,
-  EyeIcon,
-  EyeSlashIcon,
-  Progress,
-} from "@/components";
-import "./page.scss";
-import { useState } from "react";
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ArrowLeft } from "lucide-react";
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSeparator,
+  InputOTPSlot,
+} from "@/components/ui/input-otp";
+import Link from "next/link";
 
 export default function ForgotPassword() {
-  const [step, setStep] = useState(1);
-  const [isPassShow, setIsPassShow] = useState(false);
-
-  const handleNextStep = () => setStep((prev) => prev + 1);
-
-  const handleBackStep = () => setStep((prev) => prev - 1);
-
   return (
-    <section className="forgot-password">
-      <Title normalize Component="h1">
-        Forgot your password?
-      </Title>
-      <Spacing size={24} />
-      <Stepper steps={3} activeStep={step} />
-      <Spacing size={24} />
-      <form className="forgot-password__form" action="">
-        {step === 1 && (
-          <FormItem
-            bottom="Please, enter email"
-            htmlFor="email"
-            top="Enter your account email"
-          >
-            <Input id="email" placeholder="example@mail.com" />
-          </FormItem>
-        )}
-        {step === 2 && (
-          <FormItem
-            bottom="Please, enter code"
-            htmlFor="code"
-            top="Enter code from email"
-          >
-            <Input id="code" />
-          </FormItem>
-        )}
-        {step === 3 && (
-          <>
-            <FormItem
-              bottom="Please, enter password"
-              required
-              htmlFor="pass"
-              top="Password"
-            >
+    <Tabs defaultValue="email" className="w-[400px]">
+      <TabsList className="grid w-full grid-cols-3">
+        <TabsTrigger value="email">Email</TabsTrigger>
+        <TabsTrigger value="code">Code</TabsTrigger>
+        <TabsTrigger value="password">Password</TabsTrigger>
+      </TabsList>
+      <TabsContent value="email">
+        <Card>
+          <CardHeader>
+            <CardTitle>Forgot password?</CardTitle>
+            <CardDescription>
+              Enter your account email, we&apos;ll send you a code to reset your
+              password.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-2">
+            <div className="space-y-1">
+              <Label htmlFor="email">Email</Label>
               <Input
-                id="pass"
-                type={!isPassShow ? "password" : "text"}
-                after={
-                  <IconButton onClick={() => setIsPassShow((prev) => !prev)}>
-                    {!isPassShow ? (
-                      <EyeIcon width={16} height={16} fill="#99A2AD" />
-                    ) : (
-                      <EyeSlashIcon width={16} height={16} fill="#99A2AD" />
-                    )}
-                  </IconButton>
-                }
+                id="email"
+                type="email"
+                placeholder="m@example.com"
+                required
               />
-            </FormItem>
-            <Spacing size={2} />
-            <Progress value={100} height={4} />
-            <Spacing />
-            <FormItem
-              bottom="Please, confirm password"
-              required
-              htmlFor="confirmPass"
-              top="Confirm password"
-            >
-              <Input
-                id="confirmPass"
-                type={!isPassShow ? "password" : "text"}
-                after={
-                  <IconButton onClick={() => setIsPassShow((prev) => !prev)}>
-                    {!isPassShow ? (
-                      <EyeIcon width={16} height={16} fill="#99A2AD" />
-                    ) : (
-                      <EyeSlashIcon width={16} height={16} fill="#99A2AD" />
-                    )}
-                  </IconButton>
-                }
-              />
-            </FormItem>
-          </>
-        )}
-        <Spacing size={16} />
-        <ButtonGroup stretched mode="horizontal" align="between">
-          {step === 1 && (
-            <>
-              <Button mode="secondary" size="l">
-                Cancel
+            </div>
+          </CardContent>
+          <CardFooter className="flex flex-col">
+            <Button className="w-full">Send reset code</Button>
+            <div className="mt-4 text-center text-sm ">
+              <Link href="/login" className="underline flex items-center">
+                <ArrowLeft size={16} />
+                <span>Back to login</span>
+              </Link>
+            </div>
+          </CardFooter>
+        </Card>
+      </TabsContent>
+      <TabsContent value="code">
+        <Card>
+          <CardHeader>
+            <CardTitle>Reset code</CardTitle>
+            <CardDescription>
+              Enter code which we sent to your email.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-2">
+            <div className="space-y-1 flex justify-center">
+              <InputOTP maxLength={6}>
+                <InputOTPGroup>
+                  <InputOTPSlot index={0} />
+                  <InputOTPSlot index={1} />
+                  <InputOTPSlot index={2} />
+                </InputOTPGroup>
+                <InputOTPSeparator />
+                <InputOTPGroup>
+                  <InputOTPSlot index={3} />
+                  <InputOTPSlot index={4} />
+                  <InputOTPSlot index={5} />
+                </InputOTPGroup>
+              </InputOTP>
+            </div>
+          </CardContent>
+          <CardFooter className="flex flex-col">
+            <Button className="w-full">Continue</Button>
+            <span>
+              Didn&apos;t receive code?{" "}
+              <Button variant="link" className="px-0">
+                Click to resend
               </Button>
-              <Button size="l" onClick={handleNextStep}>
-                Send
-              </Button>
-            </>
-          )}
-
-          {step === 2 && (
-            <>
-              <Button mode="secondary" size="l" onClick={handleBackStep}>
-                Back
-              </Button>
-              <Button size="l" onClick={handleNextStep}>
-                Next
-              </Button>
-            </>
-          )}
-
-          {step === 3 && (
-            <>
-              <Button mode="secondary" size="l">
-                Cancel
-              </Button>
-              <Button size="l">Confirm</Button>
-            </>
-          )}
-        </ButtonGroup>
-      </form>
-      <Spacing size={24} />
-      <div>
-        <Text Component="p" normalize inline>
-          Don&apos;t have an account?
-        </Text>{" "}
-        <Link href="signup">Signup</Link>
-      </div>
-    </section>
+            </span>
+            <div className="mt-4 text-center text-sm ">
+              <Link href="/login" className="underline flex items-center">
+                <ArrowLeft size={16} />
+                <span>Back to login</span>
+              </Link>
+            </div>
+          </CardFooter>
+        </Card>
+      </TabsContent>
+      <TabsContent value="password">
+        <Card>
+          <CardHeader>
+            <CardTitle>Set new password</CardTitle>
+            <CardDescription>Change your password here.</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-2">
+            <div className="space-y-1">
+              <Label htmlFor="current">New password</Label>
+              <Input id="current" type="password" />
+            </div>
+            <div className="space-y-1">
+              <Label htmlFor="new">Confirm password</Label>
+              <Input id="new" type="password" />
+            </div>
+          </CardContent>
+          <CardFooter className="flex flex-col">
+            <Button className="w-full">Save password</Button>
+            <div className="mt-4 text-center text-sm ">
+              <Link href="/login" className="underline flex items-center">
+                <ArrowLeft size={16} />
+                <span>Back to login</span>
+              </Link>
+            </div>
+          </CardFooter>
+        </Card>
+      </TabsContent>
+    </Tabs>
   );
 }
