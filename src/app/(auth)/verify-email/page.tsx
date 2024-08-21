@@ -9,11 +9,12 @@ import {
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import VerifyEmailForm from "@/components/forms/VerifyEmailForm";
+import OTPForm from "@/components/forms/OTPForm";
+import { verifyEmail } from "@/actions/verifyEmail";
 
 export default function VerifyEmail() {
   return (
-    <Card>
+    <Card className="mx-auto min-w-96">
       <CardHeader>
         <CardTitle>Please check your email</CardTitle>
         <CardDescription>
@@ -21,7 +22,7 @@ export default function VerifyEmail() {
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-2">
-        <VerifyEmailForm />
+        <OTPForm action={verifyEmail} />
       </CardContent>
       <CardFooter className="flex flex-col">
         <span>

@@ -3,14 +3,15 @@
 import { db } from "@/db";
 import { usersTable } from "@/db/schema/users";
 import { lucia } from "@/lib/auth";
-import { verifyCode } from "@/lib/verifyCode";
-import { verificationCodeSchema } from "@/zod-schema/verificationCodeSchema";
+import { FormState } from "@/types";
+import { otpSchema } from "@/zod-schema/verificationCodeSchema";
 import { eq } from "drizzle-orm";
 import { cookies } from "next/headers";
+import { otpHandler } from "../lib/otpHandler";
 
-export async function verifyEmail(formData: FormData) {
-  const validated = verificationCodeSchema.safeParse({
-    verificationCode: formData.get("verificationCode") as string,
+export async function verifyEmail(formData: FormData): Promise<FormState> {
+  const validated = otpSchema.safeParse({
+    otp: formData.get("verificationCode") as string,
   });
 
   if (!validated.success) {
@@ -20,7 +21,7 @@ export async function verifyEmail(formData: FormData) {
     };
   }
 
-  const { verificationCode } = validated.data;
+  const { otp } = validated.data;
 
   const sessionId = cookies().get(lucia.sessionCookieName)?.value ?? null;
 
@@ -40,7 +41,7 @@ export async function verifyEmail(formData: FormData) {
     };
   }
 
-  const isVerified = await verifyCode(user, verificationCode);
+  const isVerified = await otpHandler.verifyOTP(user, otp)
 
   if (!isVerified) {
     return {

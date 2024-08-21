@@ -3,11 +3,13 @@ import postgres from "postgres";
 import { sessionsTable } from "./schema/sessions";
 import { usersTable } from "./schema/users";
 import { emailVerificationCodesTable } from "./schema/email-verification-codes";
+import { passwordResetTokensTable } from "./schema/password-reset-tokens";
 
 const schema = {
   sessionsTable,
   usersTable,
-  emailVerificationCodesTable
+  emailVerificationCodesTable,
+  passwordResetTokensTable,
 };
 
 const queryClient = postgres(process.env.DATABASE_URL!);

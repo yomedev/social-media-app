@@ -7,7 +7,6 @@ import { eq } from "drizzle-orm";
 import { verify } from "@node-rs/argon2";
 import { lucia } from "@/lib/auth";
 import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
 
 export async function login(formData: FormData) {
   const validatedFields = loginFormSchema.safeParse(
@@ -27,7 +26,7 @@ export async function login(formData: FormData) {
     where: eq(usersTable.email, email.toLocaleLowerCase()),
   });
 
-  if (!user) {
+  if (!user || !user.passwordHash) {
     return {
       message: "Invalid credentials",
       type: "error",

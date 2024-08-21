@@ -3,18 +3,16 @@
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-
-import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-
-import TooltipLabel from "../TooltipLabel";
+import { Form } from "@/components/ui/form";
 import { signupFormSchema } from "../../zod-schema/signupFormSchema";
 import { signup } from "../../actions/signup";
 import { ToastAction } from "@/components/ui/toast";
 import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
-import { Loader2 } from "lucide-react";
+import TextField from "./fields/TextField";
+import EmailField from "./fields/EmailField";
+import PasswordField from "./fields/PasswordField";
+import SubmitButton from "../SubmitButton";
 
 export default function SignupForm() {
   const form = useForm<z.infer<typeof signupFormSchema>>({
@@ -74,131 +72,38 @@ export default function SignupForm() {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-4">
         <div className="grid grid-cols-2 gap-4">
-          <FormField
+          <TextField
             control={form.control}
             name="firstName"
-            render={({ field }) => (
-              <FormItem className="grid">
-                <TooltipLabel
-                  label="First Name"
-                  errorMessage={form.formState.errors?.firstName?.message}
-                />
-                <FormControl>
-                  <Input
-                    placeholder="Bob"
-                    {...field}
-                    className={`${
-                      form.formState.errors.firstName?.message &&
-                      "border-destructive"
-                    }`}
-                  />
-                </FormControl>
-              </FormItem>
-            )}
+            label="First Name"
+            errorMessage={form.formState.errors.firstName?.message}
+            placeholder="John"
           />
-          <FormField
+          <TextField
             control={form.control}
             name="lastName"
-            render={({ field }) => (
-              <FormItem className="grid">
-                <TooltipLabel
-                  label="Last Name"
-                  errorMessage={form.formState.errors?.lastName?.message}
-                />
-                <FormControl>
-                  <Input
-                    placeholder="Smith"
-                    {...field}
-                    className={`${
-                      form.formState.errors.lastName?.message &&
-                      "border-destructive"
-                    }`}
-                  />
-                </FormControl>
-              </FormItem>
-            )}
+            label="Last Name"
+            errorMessage={form.formState.errors.lastName?.message}
+            placeholder="Doe"
           />
         </div>
-        <FormField
+        <EmailField
           control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem className="grid">
-              <TooltipLabel
-                label="Email"
-                errorMessage={form.formState.errors?.email?.message}
-              />
-              <FormControl>
-                <Input
-                  type="email"
-                  placeholder="m@example.com"
-                  {...field}
-                  className={`${
-                    form.formState.errors.email?.message && "border-destructive"
-                  }`}
-                />
-              </FormControl>
-            </FormItem>
-          )}
+          errorMessage={form.formState.errors.email?.message}
         />
-        <FormField
+        <PasswordField
           control={form.control}
-          name="password"
-          render={({ field }) => (
-            <FormItem className="grid">
-              <TooltipLabel
-                label="Password"
-                errorMessage={form.formState.errors?.password?.message}
-              />
-              <FormControl>
-                <Input
-                  type="password"
-                  {...field}
-                  className={`${
-                    form.formState.errors.password?.message &&
-                    "border-destructive"
-                  }`}
-                />
-              </FormControl>
-            </FormItem>
-          )}
+          errorMessage={form.formState.errors.password?.message}
         />
-        <FormField
+        <PasswordField
           control={form.control}
+          errorMessage={form.formState.errors.confirmPassword?.message}
           name="confirmPassword"
-          render={({ field }) => (
-            <FormItem className="grid">
-              <TooltipLabel
-                label="Confrim password"
-                errorMessage={form.formState.errors?.confirmPassword?.message}
-              />
-              <FormControl>
-                <Input
-                  type="password"
-                  {...field}
-                  className={`${
-                    form.formState.errors.confirmPassword?.message &&
-                    "border-destructive"
-                  }`}
-                />
-              </FormControl>
-            </FormItem>
-          )}
+          label="Confirm Password"
         />
-        <Button
-          disabled={form.formState.isSubmitting}
-          type="submit"
-          className="w-full"
-        >
-          {form.formState.isSubmitting ? (
-            <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" /> &nbsp;Please
-              wait
-            </>
-          ) : (
-            "Create account"
-          )}
-        </Button>
+        <SubmitButton loading={form.formState.isSubmitting} className="w-full">
+          Create account
+        </SubmitButton>
       </form>
     </Form>
   );

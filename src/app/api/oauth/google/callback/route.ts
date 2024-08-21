@@ -99,13 +99,3 @@ export async function GET(request: Request): Promise<Response> {
     });
   }
 }
-
-// {
-//   sub: '100919343051990183464',
-//   name: 'Yaroslav Omelianenko',
-//   given_name: 'Yaroslav',
-//   family_name: 'Omelianenko',
-//   picture: 'https://lh3.googleusercontent.com/a/ACg8ocKRQSBcviYybvH5OUBFXDvFR2ng04qLpalDUE0a3vvPcKCG4g=s96-c',
-//   email: 'engyarome@gmail.com',
-//   email_verified: true
-// }

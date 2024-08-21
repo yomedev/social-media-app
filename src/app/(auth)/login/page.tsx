@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -13,7 +12,7 @@ import { buttonVariants } from "@/components/ui/button";
 
 export default function Login() {
   return (
-    <Card className="mx-auto max-w-sm">
+    <Card className="mx-auto min-w-96">
       <CardHeader>
         <CardTitle className="text-2xl">Login</CardTitle>
         <CardDescription>

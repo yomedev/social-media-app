@@ -8,8 +8,7 @@ import { db } from "@/db";
 import { eq } from "drizzle-orm";
 import { usersTable } from "@/db/schema/users";
 import { cookies } from "next/headers";
-import { generateEmailVerificationCode } from "@/lib/emailVerification";
-import { sendVerificationCode } from "@/lib/sendVerificationCode";
+import { otpHandler } from "@/lib/otpHandler";
 
 export async function signup(formData: FormData) {
   const validatedFields = signupFormSchema.safeParse(
@@ -52,9 +51,9 @@ export async function signup(formData: FormData) {
     passwordHash,
   });
 
-  const verificationCode = await generateEmailVerificationCode(userId, email);
+  const verificationCode = await otpHandler.generateOTP(userId, email);
 
-  await sendVerificationCode(email, verificationCode)
+  await otpHandler.sendOTP(email, verificationCode)
 
   const session = await lucia.createSession(userId, {});
   const sessionCookie = lucia.createSessionCookie(session.id);

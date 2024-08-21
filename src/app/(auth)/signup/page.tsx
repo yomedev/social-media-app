@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -11,7 +10,7 @@ import {
 import SignupForm from "../../../components/forms/SignupForm";
 export default function Signup() {
   return (
-    <Card className="mx-auto max-w-sm">
+    <Card className="mx-auto w-96">
       <CardHeader>
         <CardTitle className="text-xl">Sign Up</CardTitle>
         <CardDescription>
@@ -20,9 +19,6 @@ export default function Signup() {
       </CardHeader>
       <CardContent>
         <SignupForm />
-        <Button variant="outline" className="w-full mt-4">
-          Sign up with Google
-        </Button>
       </CardContent>
       <CardFooter className="flex justify-center text-center text-sm">
         Already have an account?&nbsp;
