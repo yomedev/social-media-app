@@ -1,9 +1,12 @@
 import type { Control, FieldValues } from "react-hook-form";
 
+type FormStateTypes = "idle" | "error" | "success";
+
 export type FormState = {
-  type: "error" | "success";
-  message: string;
+  type: FormStateTypes;
+  message?: string;
 };
+
 export type FormProps = {
   action: (formData: FormData) => Promise<FormState>;
   onSuccess?: () => void;

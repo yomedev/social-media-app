@@ -14,6 +14,10 @@ import EmailField from "./fields/EmailField";
 import PasswordField from "./fields/PasswordField";
 import SubmitButton from "../SubmitButton";
 
+import { formStateStatus } from "@/constants";
+
+const { ERROR, SUCCESS, IDLE } = formStateStatus;
+
 export default function SignupForm() {
   const form = useForm<z.infer<typeof signupFormSchema>>({
     resolver: zodResolver(signupFormSchema),

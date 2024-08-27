@@ -25,16 +25,3 @@ export default function RootLayout({
   );
 }
 
-const Header = () => (
-  <header className="sticky top-0 flex h-16 justify-center items-center gap-4 border-b bg-background px-4 md:px-6">
-    <form className="flex-1 sm:flex-initial">
-      <div className="relative">
-        <Input
-          type="search"
-          placeholder="Search products..."
-          className="pl-8 sm:w-[300px] md:w-[200px] lg:w-[300px]"
-        />
-      </div>
-    </form>
-  </header>
-);

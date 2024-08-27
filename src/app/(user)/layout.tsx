@@ -1,5 +1,19 @@
 import type { Metadata } from "next";
 import "../../styles/globals.css";
+import Header from "./Header";
+import Nav from "./Nav";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import ResponsiveContainer from "./ResponsiveContainer";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import Sidebar from "./Sidebar";
+import Grid from "../../components/grid/Grid";
+import GridItem from "../../components/grid/GridItem";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -11,10 +25,28 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Header />
+        <ResponsiveContainer>
+          <Grid cols={4} gap={4} className="pt-4 px-4">
+            <GridItem colSpan={1}>
+              <Sidebar />
+            </GridItem>
+            <GridItem colSpan={2}>
+              <main className="min-h-[calc(100vh-5rem)] border rounded-t-xl">
+                <TooltipProvider>{children}</TooltipProvider>
+              </main>
+            </GridItem>
+            <GridItem colSpan={1}>
+              <aside>
+                <Card className="min-h-72"></Card>
+              </aside>
+            </GridItem>
+          </Grid>
+        </ResponsiveContainer>
+      </body>
     </html>
   );
 }
