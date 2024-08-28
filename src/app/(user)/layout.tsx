@@ -1,15 +1,10 @@
 import type { Metadata } from "next";
 import "../../styles/globals.css";
 import Header from "./Header";
-import Nav from "./Nav";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import ResponsiveContainer from "./ResponsiveContainer";
 import {
   Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
 import Sidebar from "./Sidebar";
 import Grid from "../../components/grid/Grid";

@@ -2,11 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    unoptimized: true
+    unoptimized: true,
   },
   experimental: {
-		serverComponentsExternalPackages: ["@node-rs/argon2"]
-	}
+    serverComponentsExternalPackages: ["@node-rs/argon2"],
+  },
 };
 
 export default nextConfig;

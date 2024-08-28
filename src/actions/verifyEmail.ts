@@ -41,7 +41,7 @@ export async function verifyEmail(formData: FormData): Promise<FormState> {
     };
   }
 
-  const isVerified = await otpHandler.verifyOTP(user, otp)
+  const isVerified = await otpHandler.verifyOTP(user, otp);
 
   if (!isVerified) {
     return {

@@ -9,14 +9,12 @@ import { Form } from "../ui/form";
 import { useToast } from "../ui/use-toast";
 import { useRouter } from "next/navigation";
 import OTPField from "./fields/OTPField";
+import { FormState } from "@/types";
 
 type OTPFormProps = {
   onSuccess?: () => void;
   onError?: () => void;
-  action: (formData: FormData) => Promise<{
-    message: string;
-    type: string;
-  }>;
+  action: (formData: FormData) => Promise<FormState>;
 };
 
 export default function OTPForm({ onSuccess, onError, action }: OTPFormProps) {

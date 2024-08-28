@@ -5,9 +5,7 @@ import Grid from "@/components/grid/Grid";
 import GridItem from "@/components/grid/GridItem";
 import Message from "@/components/Message";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { cn } from "@/lib/utils";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
@@ -50,7 +48,7 @@ export default function Chat() {
       <FlexItem
         className="pb-4 pl-2"
         component={Grid}
-        componentProps={{ cols: 4, rows: 1, align: "center" }}
+        componentProps={{ cols: 4, align: "center" }}
       >
         <GridItem colSpan={1}>
           <Link href="/chats" className="flex gap-1 items-center w-fit">
@@ -92,7 +90,9 @@ export default function Chat() {
           ))}
           <div className="grid grid-cols-7 grid-rows-1 items-center p-4">
             <Separator className="col-span-3" />
-            <span className="col-span-1 justify-self-center text-sm">Today</span>
+            <span className="col-span-1 justify-self-center text-sm">
+              Today
+            </span>
             <Separator className="col-span-3" />
           </div>
         </FlexItem>

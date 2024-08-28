@@ -9,11 +9,18 @@ type GridProps = {
   className?: string;
 };
 
-export default function Grid({ children, cols, rows, gap, align, className }: GridProps) {
+export default function Grid({
+  children,
+  cols,
+  rows,
+  gap,
+  align,
+  className,
+}: GridProps) {
   const composedClassName = cn("grid", className, {
-    [`grid-cols-${cols?.toString()}`]: cols,
-    [`grid-rows-${rows?.toString()}`]: rows,
-    [`gap-${gap?.toString()}`]: gap,
+    [`grid-cols-${cols}`]: cols,
+    [`grid-rows-${rows}`]: rows,
+    [`gap-${gap}`]: gap,
     [`items-${align}`]: align,
   });
 

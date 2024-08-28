@@ -12,26 +12,24 @@ export const validateRequest = cache(async () => {
   // getting session from db
   const { session, user } = await lucia.validateSession(sessionId);
 
-  try {
-    // if session in db and not expired
-    if (session && session.fresh) {
-      const sessionCookie = lucia.createSessionCookie(session.id);
-      cookies().set(
-        sessionCookie.name,
-        sessionCookie.value,
-        sessionCookie.attributes
-      );
-    }
-    // if session not in db
-    if (!session) {
-      const sessionCookie = lucia.createBlankSessionCookie();
-      cookies().set(
-        sessionCookie.name,
-        sessionCookie.value,
-        sessionCookie.attributes
-      );
-    }
-  } catch {}
+  // if session in db and not expired
+  if (session && session.fresh) {
+    const sessionCookie = lucia.createSessionCookie(session.id);
+    cookies().set(
+      sessionCookie.name,
+      sessionCookie.value,
+      sessionCookie.attributes
+    );
+  }
+  // if session not in db
+  if (!session) {
+    const sessionCookie = lucia.createBlankSessionCookie();
+    cookies().set(
+      sessionCookie.name,
+      sessionCookie.value,
+      sessionCookie.attributes
+    );
+  }
 
   return { session, user };
 });
