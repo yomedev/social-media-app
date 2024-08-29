@@ -1,8 +1,7 @@
 import Flex from "@/components/flex/Flex";
 import FlexItem from "@/components/flex/FlexItem";
 import MessageForm from "@/components/forms/MessageForm";
-import Grid from "@/components/grid/Grid";
-import GridItem from "@/components/grid/GridItem";
+import { Grid, GridItem } from "@/components/grid";
 import Message from "@/components/Message";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
@@ -48,7 +47,7 @@ export default function Chat() {
       <FlexItem
         className="pb-4 pl-2"
         component={Grid}
-        componentProps={{ cols: 4, align: "center" }}
+        componentProps={{ cols: 4, gap: 2, align: "center" }}
       >
         <GridItem colSpan={1}>
           <Link href="/chats" className="flex gap-1 items-center w-fit">
@@ -56,7 +55,7 @@ export default function Chat() {
             All chats
           </Link>
         </GridItem>
-        <GridItem colSpan={2} justifySelf="center">
+        <GridItem colSpan={2} rowSpan={1} justifySelf="center">
           <Link href="/profiles/123" className="flex gap-2 items-center">
             <div className="relative">
               <Avatar>

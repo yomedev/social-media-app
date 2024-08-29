@@ -3,12 +3,9 @@ import "../../styles/globals.css";
 import Header from "./Header";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import ResponsiveContainer from "./ResponsiveContainer";
-import {
-  Card,
-} from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import Sidebar from "./Sidebar";
-import Grid from "../../components/grid/Grid";
-import GridItem from "../../components/grid/GridItem";
+import { Grid, GridItem } from "../../components/grid";
 
 export const metadata: Metadata = {
   title: "Create Next App",

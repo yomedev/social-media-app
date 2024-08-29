@@ -2,8 +2,7 @@ import ResponsiveContainer from "./ResponsiveContainer";
 import SearchForm from "@/components/forms/SearchForm";
 import Logo from "./Logo";
 import Profile from "./Profile";
-import Grid from "../../components/grid/Grid";
-import GridItem from "../../components/grid/GridItem";
+import { Grid, GridItem } from "../../components/grid";
 
 export default function Header() {
   return (

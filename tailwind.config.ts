@@ -4,9 +4,9 @@ const config = {
   darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
+    ".src/components/**/*.{ts,tsx}",
+    ".src/app/**/*.{ts,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   prefix: "",
   theme: {
@@ -75,6 +75,26 @@ const config = {
     },
   },
   plugins: [require("tailwindcss-animate")],
+  safelist: [
+    {
+      pattern: /grid-cols-(1|2|3|4|5|6|7|8|9|10|11|12)/,
+    },
+    {
+      pattern: /grid-rows-(1|2|3|4|5|6|7|8|9|10|11|12)/,
+    },
+    {
+      pattern: /col-span-(1|2|3|4|5|6|7|8|9|10|11|12|full)/,
+    },
+    {
+      pattern: /row-span-(1|2|3|4|5|6|7|8|9|10|11|12|full)/,
+    },
+    {
+      pattern: /justify-self-(start|end|center)/,
+    },
+    {
+      pattern: /self-(start|end|center)/,
+    },
+  ],
 } satisfies Config;
 
 export default config;
