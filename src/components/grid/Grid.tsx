@@ -22,21 +22,6 @@ type GridItemProps = React.HTMLAttributes<HTMLDivElement> & {
   className?: string;
 };
 
-const getGridColsClass = (cols: GridRepeat | undefined) => {
-  switch (cols) {
-    case 1:
-      return "grid-cols-1";
-    case 2:
-      return "grid-cols-2";
-    case 3:
-      return "grid-cols-3";
-    case 4:
-      return "grid-cols-4";
-    default:
-      return "";
-  }
-};
-
 const Grid = React.forwardRef<HTMLDivElement, GridProps>(
   (
     { children, cols, rows, gap, align, className, ...props }: GridProps,
