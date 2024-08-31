@@ -1,97 +1,81 @@
-"use client";
-
 import { cn } from "@/lib/utils";
 import React from "react";
 
 type GridRepeat = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
-type GridProps = React.HTMLAttributes<HTMLDivElement> & {
+type GridProps<T> = {
   children: React.ReactNode;
   cols?: GridRepeat;
   rows?: GridRepeat;
   gap?: 1 | 2 | 3 | 4;
   align?: "start" | "center" | "end";
   className?: string;
+  component?: React.ElementType;
+  componentProps?: T;
 };
 
-type GridItemProps = React.HTMLAttributes<HTMLDivElement> & {
+type GridItemProps<T> = {
   children: React.ReactNode;
   colSpan?: GridRepeat | "full";
   rowSpan?: GridRepeat | "full";
   justifySelf?: "start" | "center" | "end";
   className?: string;
+  component?: React.ElementType;
+  componentProps?: T;
 };
 
-const Grid = React.forwardRef<HTMLDivElement, GridProps>(
-  (
-    { children, cols, rows, gap, align, className, ...props }: GridProps,
-    ref
-  ) => (
-    <div
-      ref={ref}
-      className={cn("grid", className, {
-        [`grid-cols-${cols}`]: cols,
-        [`grid-rows-${rows}`]: rows,
-        [`gap-${gap}`]: gap,
-        [`items-${align}`]: align,
-      })}
-      {...props}
-    >
+function Grid<T>({
+  children,
+  cols,
+  rows,
+  gap,
+  align,
+  className,
+  component,
+  componentProps,
+}: GridProps<T>) {
+  const composedClassName = cn("grid", className, {
+    [`grid-cols-${cols}`]: cols,
+    [`grid-rows-${rows}`]: rows,
+    [`gap-${gap}`]: gap,
+    [`items-${align}`]: align,
+  });
+
+  const Comp = component || "div";
+  return (
+    <Comp {...componentProps} className={composedClassName}>
       {children}
-    </div>
-  )
-);
+    </Comp>
+  );
+}
 
 Grid.displayName = "Grid";
 
-const GridItem = React.forwardRef<HTMLDivElement, GridItemProps>(
-  (
+function GridItem<T>({
+  children,
+  colSpan,
+  rowSpan,
+  justifySelf,
+  className,
+  component,
+  componentProps,
+}: GridItemProps<T>) {
+  const composedClassName = cn(
     {
-      children,
-      colSpan,
-      rowSpan,
-      justifySelf,
-      className,
-      ...props
-    }: GridItemProps,
-    ref
-  ) => (
-    <div
-      ref={ref}
-      className={cn({
-        [`col-span-${colSpan}`]: colSpan,
-        [`row-span-${rowSpan}`]: rowSpan,
-        [`justify-self-${justifySelf}`]: justifySelf,
-      })}
-      {...props}
-    >
+      [`col-span-${colSpan}`]: colSpan,
+      [`row-span-${rowSpan}`]: rowSpan,
+      [`justify-self-${justifySelf}`]: justifySelf,
+    },
+    className
+  );
+  const Comp = component || "div";
+  return (
+    <Comp className={composedClassName} {...componentProps}>
       {children}
-    </div>
-  )
-);
+    </Comp>
+  );
+}
 
 GridItem.displayName = "GridItem";
 
 export { Grid, GridItem };
-
-// export default function Grid({
-//   children,
-//   cols,
-//   rows,
-//   gap,
-//   align,
-//   className,
-// }: GridProps) {
-//   const composedClassName = cn(
-//     "grid",
-//     {
-//       [`grid-cols-${cols}`]: cols,
-//       [`grid-rows-${rows}`]: rows,
-//       [`gap-${gap}`]: gap,
-//       [`items-${align}`]: align,
-//     },
-//     className
-//   );
-
-//   return <div className={composedClassName}>{children}</div>;
-// }

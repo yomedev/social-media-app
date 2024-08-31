@@ -1,5 +1,4 @@
-import Flex from "@/components/flex/Flex";
-import FlexItem from "@/components/flex/FlexItem";
+import { Flex, FlexItem } from "@/components/flex";
 import MessageForm from "@/components/forms/MessageForm";
 import { Grid, GridItem } from "@/components/grid";
 import Message from "@/components/Message";
@@ -43,7 +42,7 @@ const messages = [
 
 export default function Chat() {
   return (
-    <Flex direction="col" className="h-[calc(100vh-5rem)] p-4">
+    <Flex direction="col" className="h-full p-4">
       <FlexItem
         className="pb-4 pl-2"
         component={Grid}

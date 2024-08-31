@@ -94,6 +94,9 @@ const config = {
     {
       pattern: /self-(start|end|center)/,
     },
+    {
+      pattern: /flex-(row|row-reverse|col|col-reverse)/,
+    },
   ],
 } satisfies Config;
 

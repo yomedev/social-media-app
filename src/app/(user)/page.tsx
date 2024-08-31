@@ -15,5 +15,7 @@ export default async function Home() {
   //   console.log(error);
   // }
 
+  console.log("Home page");
+
   return <div></div>;
 }

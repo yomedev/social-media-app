@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import "../../styles/globals.css";
-import Header from "./Header";
+import "@/styles/globals.css";
+import Header from "@/components/Header";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import ResponsiveContainer from "./ResponsiveContainer";
-import { Card } from "@/components/ui/card";
-import Sidebar from "./Sidebar";
-import { Grid, GridItem } from "../../components/grid";
+import ResponsiveContainer from "@/components/ResponsiveContainer";
+import Sidebar from "@/components/Sidebar";
+import { Grid, GridItem } from "@/components/grid";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,30 +13,43 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  sideMenu,
 }: Readonly<{
   children: React.ReactNode;
+  sideMenu?: React.ReactNode;
 }>) {
   return (
     <html lang="en">
       <body>
-        <Header />
-        <ResponsiveContainer>
-          <Grid cols={4} gap={4} className="pt-4 px-4">
-            <GridItem colSpan={1}>
-              <Sidebar />
-            </GridItem>
-            <GridItem colSpan={2}>
-              <main className="min-h-[calc(100vh-5rem)] border rounded-t-xl">
-                <TooltipProvider>{children}</TooltipProvider>
-              </main>
-            </GridItem>
-            <GridItem colSpan={1}>
-              <aside>
-                <Card className="min-h-72"></Card>
-              </aside>
-            </GridItem>
-          </Grid>
-        </ResponsiveContainer>
+        <TooltipProvider>
+          <Header />
+          <ResponsiveContainer>
+            <Grid cols={4} gap={4} className="pt-4 px-4">
+              <GridItem colSpan={1}>
+                <Sidebar />
+              </GridItem>
+              <GridItem colSpan={3}>
+                <main className="min-h-[calc(100vh-5rem)]">
+                  <Grid cols={3} gap={4}>
+                    <GridItem
+                      colSpan={2}
+                      className="min-h-[calc(100vh-5rem)] border rounded-t-xl p-4"
+                    >
+                      {children}
+                    </GridItem>
+                    <GridItem colSpan={1}>
+                      <aside>
+                        <section className="min-h-72 border rounded-xl">
+                          {sideMenu}
+                        </section>
+                      </aside>
+                    </GridItem>
+                  </Grid>
+                </main>
+              </GridItem>
+            </Grid>
+          </ResponsiveContainer>
+        </TooltipProvider>
       </body>
     </html>
   );

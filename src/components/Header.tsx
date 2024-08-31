@@ -1,8 +1,8 @@
 import ResponsiveContainer from "./ResponsiveContainer";
-import SearchForm from "@/components/forms/SearchForm";
+import SearchForm from "./forms/SearchForm";
 import Logo from "./Logo";
 import Profile from "./Profile";
-import { Grid, GridItem } from "../../components/grid";
+import { Grid, GridItem } from "./grid";
 
 export default function Header() {
   return (

@@ -6,9 +6,8 @@ import {
   ContextMenuItem,
   ContextMenuTrigger,
 } from "@/components/ui/context-menu";
-import { CheckCheck, Copy, Delete, Pencil, Trash } from "lucide-react";
-import Flex from "./flex/Flex";
-import FlexItem from "./flex/FlexItem";
+import { CheckCheck, Copy, Pencil, Trash } from "lucide-react";
+import { Flex, FlexItem } from "./flex";
 
 type MessageProps = {
   content: string;
